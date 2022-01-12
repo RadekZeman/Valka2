@@ -117,8 +117,6 @@ if __name__ == '__main__':
                      print(f"hrac2={hrac2}")
                      break
                  else:
-                     c = plustri(c)
-                     d = c+1
                      if len(hrac1) == 3+c:
                          hrac1 = np.append(hrac1, hrac1a[a])
                          hrac1a = np.delete(hrac1a, 0)
@@ -161,3 +159,5 @@ if __name__ == '__main__':
                          hrac2a = np.delete(hrac2a, 0)
                          print(f"doplneni karet, hrac2={hrac2}"
                                f"hrac2a={hrac2a}")
+                     c = plustri(c)
+                     d = c+1
