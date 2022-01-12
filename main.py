@@ -1,7 +1,8 @@
 import random
 import numpy as np
 
-
+def plustri(c):
+   return(c+3)
 
 
 if __name__ == '__main__':
@@ -93,50 +94,70 @@ if __name__ == '__main__':
                  hrac2a = np.delete(hrac2a, 0)
                  print(f"doplneni karet, hrac2={hrac2}"
                        f"hrac2a={hrac2a}")
-             v = hrac1[3]
-             w = hrac2[3]
-             if v > w:
-                hrac1a = np.append(hrac1a, hrac2[b])
-                hrac1a = np.append(hrac1a, hrac2[b + 1])
-                hrac1a = np.append(hrac1a, hrac2[b + 2])
-                hrac1a = np.append(hrac1a, hrac2[b + 3])
-                hrac1a = np.append(hrac1a, hrac1[a])
-                hrac1a = np.append(hrac1a, hrac1[a + 1])
-                hrac1a = np.append(hrac1a, hrac1[a + 2])
-                hrac1a = np.append(hrac1a, hrac1[a + 3])
-                hrac1 = np.delete(hrac1, 0)
-                hrac1 = np.delete(hrac1, 0)
-                hrac1 = np.delete(hrac1, 0)
-                hrac1 = np.delete(hrac1, 0)
-                hrac2 = np.delete(hrac2, 0)
-                hrac2 = np.delete(hrac2, 0)
-                hrac2 = np.delete(hrac2, 0)
-                hrac2 = np.delete(hrac2, 0)
-                print(f"hrac1a={hrac1a}")
-                print(f"hrac1={hrac1}")
-                print(f"hrac2={hrac2}")
-             elif w > v:
-                hrac2a = np.append(hrac2a, hrac2[b])
-                hrac2a = np.append(hrac2a, hrac2[b+1])
-                hrac2a = np.append(hrac2a, hrac2[b+2])
-                hrac2a = np.append(hrac2a, hrac2[b+3])
-                hrac2a = np.append(hrac2a, hrac1[a])
-                hrac2a = np.append(hrac2a, hrac1[a+1])
-                hrac2a = np.append(hrac2a, hrac1[a+2])
-                hrac2a = np.append(hrac2a, hrac1[a+3])
-                hrac1 = np.delete(hrac1, 0)
-                hrac1 = np.delete(hrac1, 0)
-                hrac1 = np.delete(hrac1, 0)
-                hrac1 = np.delete(hrac1, 0)
-                hrac2 = np.delete(hrac2, 0)
-                hrac2 = np.delete(hrac2, 0)
-                hrac2 = np.delete(hrac2, 0)
-                hrac2 = np.delete(hrac2, 0)
-                print(f"hrac2a={hrac2a}")
-                print(f"hrac1={hrac1}")
-                print(f"hrac2={hrac2}")
-
-
-
-
-
+             c = 3
+             d = 4
+             print(f"valka")
+             while 1:
+                 if hrac1[c] > hrac2[c]:
+                     hrac1a = np.append(hrac1a, hrac1[: d])
+                     hrac1a = np.append(hrac1a, hrac2[: d])
+                     hrac1 = hrac1[d :]
+                     hrac2 = hrac2[d :]
+                     print(f"hrac1a={hrac1a}")
+                     print(f"hrac1={hrac1}")
+                     print(f"hrac2={hrac2}")
+                     break
+                 elif hrac2[c] > hrac1[c]:
+                     hrac2a = np.append(hrac2a, hrac1[: d])
+                     hrac2a = np.append(hrac2a, hrac2[: d])
+                     hrac1 = hrac1[d:]
+                     hrac2 = hrac2[d:]
+                     print(f"hrac2a={hrac2a}")
+                     print(f"hrac1={hrac1}")
+                     print(f"hrac2={hrac2}")
+                     break
+                 else:
+                     c = plustri(c)
+                     d = c+1
+                     if len(hrac1) == 3+c:
+                         hrac1 = np.append(hrac1, hrac1a[a])
+                         hrac1a = np.delete(hrac1a, 0)
+                         print(f"doplneni karet, hrac1={hrac1}"
+                               f"hrac1a={hrac1a}")
+                     if len(hrac1) == 2+c:
+                         hrac1 = np.append(hrac1, hrac1a[a])
+                         hrac1 = np.append(hrac1, hrac1a[a + 1])
+                         hrac1a = np.delete(hrac1a, 0)
+                         hrac1a = np.delete(hrac1a, 0)
+                         print(f"doplneni karet, hrac1={hrac1}"
+                               f"hrac1a={hrac1a}")
+                     if len(hrac1) == 1+c:
+                         hrac1 = np.append(hrac1, hrac1a[a])
+                         hrac1 = np.append(hrac1, hrac1a[a + 1])
+                         hrac1 = np.append(hrac1, hrac1a[a + 2])
+                         hrac1a = np.delete(hrac1a, 0)
+                         hrac1a = np.delete(hrac1a, 0)
+                         hrac1a = np.delete(hrac1a, 0)
+                         print(f"doplneni karet, hrac1={hrac1}"
+                               f"hrac1a={hrac1a}")
+                     if len(hrac2) == 3+c:
+                         hrac2 = np.append(hrac2, hrac2a[b])
+                         hrac2a = np.delete(hrac2a, 0)
+                         print(f"doplneni karet, hrac2={hrac2}"
+                               f"hrac2a={hrac2a}")
+                     if len(hrac2) == 2+c:
+                         hrac2 = np.append(hrac2, hrac2a[b])
+                         hrac2 = np.append(hrac2, hrac2a[b + 1])
+                         hrac2a = np.delete(hrac2a, 0)
+                         hrac2a = np.delete(hrac2a, 0)
+                         print(f"doplneni karet, hrac2={hrac2}"
+                               f"hrac2a={hrac2a}")
+                     if len(hrac2) == 1+c:
+                         hrac2 = np.append(hrac2, hrac2a[b])
+                         hrac2 = np.append(hrac2, hrac2a[b + 1])
+                         hrac2 = np.append(hrac2, hrac2a[b + 2])
+                         hrac2a = np.delete(hrac2a, 0)
+                         hrac2a = np.delete(hrac2a, 0)
+                         hrac2a = np.delete(hrac2a, 0)
+                         print(f"doplneni karet, hrac2={hrac2}"
+                               f"hrac2a={hrac2a}")
