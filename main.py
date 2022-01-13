@@ -14,11 +14,14 @@ if __name__ == '__main__':
  hrac2 = hrac[int(len(hrac)/2):]
  print(f"hrac1={hrac1}")
  print(f"hrac2={hrac2}")
- a=0
- b=0
+ a = 0
+ b = 0
+ z = 0
  hrac1a = []
  hrac2a = []
  while 1:
+         if z == 1:
+             break
          if len(hrac1) == 0:
              if len(hrac1a) == 0:
                  print(f"hrac2 vyhral")
@@ -40,17 +43,11 @@ if __name__ == '__main__':
              hrac1a = np.append(hrac1a, hrac2[b])
              hrac1 = np.delete(hrac1, 0)
              hrac2 = np.delete(hrac2, 0)
-             print(f"hrac1a={hrac1a}")
-             print(f"hrac1={hrac1}")
-             print(f"hrac2={hrac2}")
          elif y > x:
-             hrac2a = np.append(hrac2a, hrac1[a])
-             hrac2a = np.append(hrac2a, hrac2[b])
+             hrac2a = np.append(hrac2a, hrac2[a])
+             hrac2a = np.append(hrac2a, hrac1[b])
              hrac1 = np.delete(hrac1, 0)
              hrac2 = np.delete(hrac2, 0)
-             print(f"hrac2a={hrac2a}")
-             print(f"hrac1={hrac1}")
-             print(f"hrac2={hrac2}")
          else:
              print(f"valka")
              c = 0
@@ -86,7 +83,9 @@ if __name__ == '__main__':
                                f"hrac1a={hrac1a}")
                  if len(hrac1) == 1 + c:
                      if len(hrac1a) == 0:
-                         print(f"hrac2 vyhral")
+                         print(f"hrac1 malo karet,hrac2 vyhral")
+                         z = 1
+                         break
                      elif len(hrac1a) == 1:
                          hrac1 = np.append(hrac1, hrac1a[a])
                          hrac1a = np.delete(hrac1a, 0)
@@ -140,7 +139,9 @@ if __name__ == '__main__':
                                f"hrac2a={hrac2a}")
                  if len(hrac2) == 1 + c:
                      if len(hrac2a) == 0:
-                         print(f"hrac1 vyhral")
+                         print(f"hrac2 malo karet, hrac1 vyhral")
+                         z = 1
+                         break
                      elif len(hrac2a) == 1:
                          hrac2 = np.append(hrac2, hrac2a[a])
                          hrac2a = np.delete(hrac2a, 0)
