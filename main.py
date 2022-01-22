@@ -14,15 +14,11 @@ if __name__ == '__main__':
  a = 0
  b = 0
  z = 0
- while 1:
-    if z:
-        break
+ while not(len(hrac1) == 0 or len(hrac2) == 0):
     if len(hrac1) == 0:
         print(f"hrac2 vyhral")
-        break
     if len(hrac2) == 0:
         print(f"hrac1 vyhral")
-        break
     x = hrac1[0]
     y = hrac2[0]
     if x > y:
@@ -43,7 +39,7 @@ if __name__ == '__main__':
         print(f"valka")
         c = 0
         d = 1
-        while 1:
+        while hrac1[a] == hrac2[b]:
             if len(hrac1) == 3 + c:
                 c = c-1
             if len(hrac1) == 2 + c:
@@ -51,7 +47,6 @@ if __name__ == '__main__':
             if len(hrac1) == 1 + c:
                 print(f"hrac1 malo karet, hrac2 vyhral")
                 z = 1
-                break
             if len(hrac2) == 3 + c:
                 c = c - 1
             if len(hrac2) == 2 + c:
@@ -59,7 +54,6 @@ if __name__ == '__main__':
             if len(hrac2) == 1 + c:
                 print(f"hrac2 malo karet, hrac1 vyhral")
                 z = 1
-                break
             c += 3
             d += 3
             if hrac1[c] > hrac2[c]:
@@ -69,7 +63,6 @@ if __name__ == '__main__':
                 hrac2 = hrac2[d:]
                 print(f"hrac1={hrac1}")
                 print(f"hrac2={hrac2}")
-                break
             elif hrac2[c] > hrac1[c]:
                 hrac2 = np.append(hrac2, hrac1[: d])
                 hrac2 = np.append(hrac2, hrac2[: d])
@@ -77,4 +70,7 @@ if __name__ == '__main__':
                 hrac2 = hrac2[d:]
                 print(f"hrac1={hrac1}")
                 print(f"hrac2={hrac2}")
-                break
+ if len(hrac1) == 0:
+    print(f"hrac2 vyhral")
+ if len(hrac2) == 0:
+    print(f"hrac1 vyhral")
